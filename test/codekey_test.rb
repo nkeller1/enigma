@@ -13,9 +13,9 @@ class CodekeyTest < Minitest::Test
   def test_it_exists
     assert_instance_of Codekey, @codekey
   end
-
-  def seperate_number_to_pairs
-    assert_equal "", @codekey.seperate_number_to_pairs
+  #
+  def test_sets
+    assert_equal "", @codekey.a_set
   end
 
 end
