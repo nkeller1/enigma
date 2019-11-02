@@ -14,8 +14,15 @@ class CodekeyTest < Minitest::Test
     assert_instance_of Codekey, @codekey
   end
   #
-  def test_sets
-    assert_equal "", @codekey.a_set
+  def test_seperate_to_pairs
+    #will use mocks and stubs here. this is just a failing placeholder
+    expected = { :a => 84,
+                 :b => 45,
+                 :c => 58,
+                 :d => 89,
+                }
+
+    assert_equal expected, @codekey.seperate_to_pairs
   end
 
 end

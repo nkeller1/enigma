@@ -5,31 +5,14 @@ class Codekey
     @key = rand(10000..99999)
   end
 
-  def a_set
+  def seperate_to_pairs
     numbers = @key.to_s.split(//)
-    numbers.reduce({}) do |hash, number|
-    hash[:a] = numbers[0..1].join.to_i
-    hash[:b] = numbers[1..2].join.to_i
-    hash[:c] = numbers[2..3].join.to_i
-    hash[:d] = numbers[3..4].join.to_i
-    require "pry"; binding.pry
-    hash
+    numbers.reduce({}) do |pair, number|
+    pair[:a] = numbers[0..1].join.to_i
+    pair[:b] = numbers[1..2].join.to_i
+    pair[:c] = numbers[2..3].join.to_i
+    pair[:d] = numbers[3..4].join.to_i
+    pair
     end
   end
-
-  def b_set
-    numbers = @key.to_s.split(//)
-    b = numbers[1..2].join
-  end
-
-  def c_set
-    numbers = @key.to_s.split(//)
-    c = numbers[2..3].join
-  end
-
-  def d_set
-    numbers = @key.to_s.split(//)
-    d = numbers[3..4].join
-  end
-
 end
