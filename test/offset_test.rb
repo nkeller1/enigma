@@ -33,10 +33,10 @@ class OffsetTest < Minitest::Test
   end
 
   def test_square
-    assert_equal "446012161", @offset.square_date
+    assert_equal 446012161, @offset.square_date
   end
 
-  # def test_take_last_4
-  #   assert_equal ""
-  # end
+  def test_take_last_4
+    assert_equal 2161, @offset.take_last_four
+  end
 end
