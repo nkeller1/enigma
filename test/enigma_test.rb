@@ -2,6 +2,8 @@ require_relative './test_helper'
 require 'minitest/autorun'
 require 'minitest/pride'
 require_relative '../lib/enigma'
+require_relative '../lib/offset'
+require_relative '../lib/codekey'
 require 'date'
 require 'mocha/minitest'
 
@@ -16,9 +18,13 @@ class EnigmaTest < Minitest::Test
   end
 
   def test_char_set_has_27_characters
-  
+
     assert_equal 27, @enigma.char_set.count
     # assert_equal key, @enigma.key
+  end
+
+  def test_associate_pairs
+    assert_eqal "", @enigma.associate_pairs
   end
 
   def test_encrpt
@@ -32,6 +38,7 @@ class EnigmaTest < Minitest::Test
     assert_equal expected, @enigma.encrypt("hello world", "02715", "040895")
   end
 end
+
 
 
 # enigma.encrypt("hello world", "02715", "040895")

@@ -5,17 +5,20 @@ class Enigma
 
   def initialize
     @char_set = ("a".."z").to_a << " "
+    @codekey = Codekey.new
+    @offset = Offset.new
   end
 
-  def encrypt(message, key, date)
+  def associate_pairs
+    require "pry"; binding.pry
+    @codekey.seperate_to_pairs
   end
+
+  # def encrypt(message, key, date)
+  # end
 
 end
 
-# t = Time.now
-# date = [t.day, t.month, t.year]
-
-#
 # CIPHER = [*?A..?Z], [*?a..?z]
 #
 # def caesar_cipher string, shift
