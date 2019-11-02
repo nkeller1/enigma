@@ -1,5 +1,4 @@
 require_relative './test_helper'
-require 'date'
 require 'mocha/minitest'
 require 'minitest/autorun'
 require 'minitest/pride'
