@@ -5,8 +5,6 @@ class Enigma
 
   def initialize
     @char_set = ("a".."z").to_a << " "
-    @key = rand(10000..99999)
-
   end
 
   def encrypt(message, key, date)
