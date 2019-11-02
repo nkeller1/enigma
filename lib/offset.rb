@@ -24,17 +24,10 @@ class Offset
   end
 
   def square_date
-    square = combine.to_i * combine.to_i
-    square.to_s
+    combine.to_i * combine.to_i
   end
 
   def take_last_four
-    require "pry"; binding.pry
-    4.times
+    square_date % 10000
   end
-
-
 end
-
-# t = Time.now
-# date = [t.day, t.month, t.year]
