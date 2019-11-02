@@ -36,7 +36,23 @@ class OffsetTest < Minitest::Test
     assert_equal 446012161, @offset.square_date
   end
 
-  def test_take_last_4
+  def test_take_last_four
     assert_equal 2161, @offset.take_last_four
   end
+
+  def test_split_last_four
+    assert_equal ["2", "1", "6", "1"], @offset.split_last_four
+  end
+
+  def test_create_last_four_pairing
+      #will use mocks and stubs here. this is just a failing placeholder
+      expected = { :a => 2,
+                   :b => 1,
+                   :c => 6,
+                   :d => 1,
+                  }
+
+      assert_equal expected, @offset.create_last_four_hash
+  end
+
 end
