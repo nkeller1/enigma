@@ -31,7 +31,11 @@ class Offset
     square_date % 10000
   end
 
-  #split take last four into an array
+  def split_last_four
+    numbers = take_last_four.to_s.split(//)
+  end
 
-  #create a hash with one letter to one number k/v pairs
+  def create_last_four_pairing
+    #create a hash with one letter to one number k/v pairs
+  end
 end
