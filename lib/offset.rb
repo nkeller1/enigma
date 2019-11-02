@@ -35,7 +35,12 @@ class Offset
     numbers = take_last_four.to_s.split(//)
   end
 
-  def create_last_four_pairing
-    #create a hash with one letter to one number k/v pairs
+  def create_last_four_hash
+    split = {
+      :a => split_last_four[0].to_i,
+      :b => split_last_four[1].to_i,
+      :c => split_last_four[2].to_i,
+      :d => split_last_four[3].to_i
+    }
   end
 end

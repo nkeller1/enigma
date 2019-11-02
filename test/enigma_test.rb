@@ -24,7 +24,7 @@ class EnigmaTest < Minitest::Test
   end
 
   def test_associate_pairs
-    assert_eqal "", @enigma.associate_pairs
+    assert_equal "", @enigma.associate_pairs
   end
 
   def test_encrpt
