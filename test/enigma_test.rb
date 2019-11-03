@@ -4,6 +4,7 @@ require 'minitest/pride'
 require_relative '../lib/enigma'
 require_relative '../lib/offset'
 require_relative '../lib/codekey'
+require_relative '../lib/encrypt'
 require 'date'
 require 'mocha/minitest'
 
@@ -11,6 +12,7 @@ class EnigmaTest < Minitest::Test
 
   def setup
     @enigma = Enigma.new
+    @offset = Offset.new
   end
 
   def test_it_exists
@@ -18,9 +20,7 @@ class EnigmaTest < Minitest::Test
   end
 
   def test_char_set_has_27_characters
-
     assert_equal 27, @enigma.char_set.count
-    # assert_equal key, @enigma.key
   end
 
   def test_shift_amount

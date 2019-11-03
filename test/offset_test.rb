@@ -23,10 +23,14 @@ class OffsetTest < Minitest::Test
   end
 
   def test_collect_month
+    #stub data
+    @offset.expects(:collect_month).returns("11")
     assert_equal "11", @offset.collect_month
   end
 
   def test_collect_year
+    #stub data
+    @offset.expects(:collect_year).returns("19")
     assert_equal "19", @offset.collect_year
   end
 
