@@ -27,7 +27,7 @@ class OffsetTest < Minitest::Test
   end
 
   def test_collect_year
-    assert_equal "19", @offset.collect_year
+    assert_equal "19", @offset.collect_year.length
   end
 
   def test_combine
