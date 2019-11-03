@@ -2,16 +2,13 @@ require_relative './test_helper'
 require 'mocha/minitest'
 require 'minitest/autorun'
 require 'minitest/pride'
-require_relative '../lib/enigma'
 require_relative '../lib/encrypt'
-require_relative '../lib/offset'
-require_relative '../lib/codekey'
+
 
 class EncryptTest < Minitest::Test
 
   def setup
     @encrypt = Encrypt.new
-    @enigma = Enigma.new
   end
 
   def test_it_exists
@@ -22,14 +19,21 @@ class EncryptTest < Minitest::Test
     assert_equal 27, @encrypt.char_set.count
   end
 
-  def test_map_offset_amount_to_char_set
-    skip
-    assert_equal "", @encrypt.map_offset_amount_to_char_set
-  end
-
   def test_encrypt_string
     assert_equal "ifmmp", @encrypt.encrypt_string("hello", 1)
   end
 
+  def test_rotate_by_offset_value
+    #stub
+    fake_rotate = [1,2,3,4]
+    @encrypt.expects(:rotate_by_offset_value).returns(fake_rotate)
+    assert_equal fake_rotate, @encrypt.rotate_by_offset_value
+  end
 
+  def test_rotate_char_set
+    #stub
+    fake_char_rotate = [1,2,3,4]
+    @encrypt.expects(:rotate_char_set).returns(fake_char_rotate)
+    assert_equal fake_char_rotate, @encrypt.rotate_char_set
+  end
 end

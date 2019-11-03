@@ -1,12 +1,13 @@
 require_relative './test_helper'
 require 'minitest/autorun'
 require 'minitest/pride'
+require 'date'
+require 'mocha/minitest'
 require_relative '../lib/enigma'
 require_relative '../lib/offset'
 require_relative '../lib/codekey'
 require_relative '../lib/encrypt'
-require 'date'
-require 'mocha/minitest'
+
 
 class EnigmaTest < Minitest::Test
 
@@ -31,16 +32,15 @@ class EnigmaTest < Minitest::Test
     assert_equal fake_shift, @enigma.shift_amount
   end
 
-  def test_encrpt
-    skip
-      expected = {
-        encryption: "keder ohulw",
-        key: "02715",
-        date: "040895"
-      }
-
-    assert_equal expected, @enigma.encrypt("hello world", "02715", "040895")
-  end
+#   def test_encrpt
+#       expected = {
+#         encryption: "keder ohulw",
+#         key: "02715",
+#         date: "040895"
+#       }
+#
+#     assert_equal expected, @enigma.encrypt("hello world", "02715", "040895")
+#   end
 end
 
 
