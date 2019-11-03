@@ -22,13 +22,13 @@ class EncryptTest < Minitest::Test
   def test_encrypt_string
     assert_equal "ifmmp", @encrypt.encrypt_string("hello", 1)
   end
-
-  def test_rotate_by_offset_value
-    #stub
-    fake_rotate = [1,2,3,4]
-    @encrypt.expects(:rotate_by_offset_value).returns(fake_rotate)
-    assert_equal fake_rotate, @encrypt.rotate_by_offset_value
-  end
+  # 
+  # def test_rotate_by_offset_value
+  #   #stub
+  #   # fake_rotate = [1,2,3,4]
+  #   # @encrypt.expects(:rotate_by_offset_value).returns(fake_rotate)
+  #   assert_equal 'fake_rotate', @encrypt.rotate_by_offset_value
+  # end
 
   def test_rotate_char_set
     #stub

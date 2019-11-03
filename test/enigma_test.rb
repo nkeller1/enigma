@@ -14,15 +14,16 @@ class EnigmaTest < Minitest::Test
   def setup
     @enigma = Enigma.new
     @offset = Offset.new
+    @Encrypt = Encrypt.new
   end
 
   def test_it_exists
     assert_instance_of Enigma, @enigma
   end
 
-  def test_char_set_has_27_characters
-    assert_equal 27, @enigma.char_set.count
-  end
+  # def test_char_set_has_27_characters
+  #   assert_equal 27, @enigma.char_set.count
+  # end
 
   def test_shift_amount
     #stub data
@@ -30,6 +31,13 @@ class EnigmaTest < Minitest::Test
     @enigma.expects(:shift_amount).returns(fake_shift)
 
     assert_equal fake_shift, @enigma.shift_amount
+  end
+
+  def test_rotate_by_offset_value
+    #stub
+    fake_rotate = [1,2,3,4]
+    @enigma.expects(:rotate_by_offset_value).returns(fake_rotate)
+    assert_equal fake_rotate, @enigma.rotate_by_offset_value
   end
 
   def test_encrypt
