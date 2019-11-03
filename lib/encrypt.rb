@@ -7,7 +7,10 @@ class Encrypt
 
   def encrypt_string(message, key)
     message_to_array = message.downcase.chars.map { |char| char.ord }
-    shifted_message = message_to_array.map { |char| char + key }
+    shifted_message = message_to_array.map do |char|
+      require "pry"; binding.pry
+      char + key
+    end
     shifted_message.map { |char| char.chr }.join
   end
 

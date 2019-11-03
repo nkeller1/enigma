@@ -17,6 +17,14 @@ class Enigma
     end
     shift
   end
+
+  def encrypt(message)
+    list = {}
+    list[:encryption] = message
+    list[:key] = @codekey.key
+    list[:date] = @offset.combine
+    list
+  end
 end
 
 

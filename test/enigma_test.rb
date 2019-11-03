@@ -32,22 +32,13 @@ class EnigmaTest < Minitest::Test
     assert_equal fake_shift, @enigma.shift_amount
   end
 
-#   def test_encrpt
-#       expected = {
-#         encryption: "keder ohulw",
-#         key: "02715",
-#         date: "040895"
-#       }
-#
-#     assert_equal expected, @enigma.encrypt("hello world", "02715", "040895")
-#   end
+  def test_encrypt
+      expected = {
+        encryption: "keder ohulw",
+        key: "02715",
+        date: "040895"
+      }
+
+    assert_equal expected, @enigma.encrypt("hello world")
+  end
 end
-
-
-# enigma.encrypt("hello world", "02715", "040895")
-#=>
-#   {
-#     encryption: "keder ohulw",
-#     key: "02715",
-#     date: "040895"
-#   }
