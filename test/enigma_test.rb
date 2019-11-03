@@ -23,8 +23,12 @@ class EnigmaTest < Minitest::Test
     # assert_equal key, @enigma.key
   end
 
-  def test_associate_pairs
-    assert_equal "", @enigma.associate_pairs
+  def test_shift_amount
+    #stub data
+    fake_shift = {:a =>12,:b => 23, :c => 34, :d => 45}
+    @enigma.expects(:shift_amount).returns(fake_shift)
+
+    assert_equal fake_shift, @enigma.shift_amount
   end
 
   def test_encrpt

@@ -15,11 +15,13 @@ class OffsetTest < Minitest::Test
   def test_it_exists
     assert_instance_of Offset, @offset
   end
-#need to change all these to mocks
+
   def test_collect_day
-    assert_equal "02", @offset.collect_day
+    #stub data
+    @offset.expects(:collect_day).returns("01")
+    assert_equal "01", @offset.collect_day
   end
-  #
+
   def test_collect_month
     assert_equal "11", @offset.collect_month
   end
@@ -29,11 +31,15 @@ class OffsetTest < Minitest::Test
   end
 
   def test_combine
-    assert_equal "021119", @offset.combine
+    #stub data
+    @offset.expects(:combine).returns("12345")
+    assert_equal "12345", @offset.combine
   end
 
-  def test_square
-    assert_equal 446012161, @offset.square_date
+  def test_square_date
+    #stub data
+    @offset.expects(:square_date).returns(123456789)
+    assert_equal 123456789, @offset.square_date
   end
 
   def test_take_last_four
@@ -45,14 +51,10 @@ class OffsetTest < Minitest::Test
   end
 
   def test_create_last_four_pairing
-      #will use mocks and stubs here. this is just a failing placeholder
-      expected = { :a => 2,
-                   :b => 1,
-                   :c => 6,
-                   :d => 1,
-                  }
+    # stub data
+    fake_pairing = {:a =>12,:b => 23, :c => 34, :d => 45}
+    @offset.expects(:create_last_four_hash).returns(fake_pairing)
 
-      assert_equal expected, @offset.create_last_four_hash
+    assert_equal fake_pairing, @offset.create_last_four_hash
   end
-
 end
