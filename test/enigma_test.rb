@@ -24,13 +24,11 @@ class EnigmaTest < Minitest::Test
   end
 
   def test_shift_amount
-    expected = { :a => 20,
-                 :b => 10,
-                 :c => 60,
-                 :d => 10,
-                }
+    #stub data
+    fake_shift = {:a =>12,:b => 23, :c => 34, :d => 45}
+    @enigma.expects(:shift_amount).returns(fake_shift)
 
-    assert_equal expected, @enigma.shift_amount
+    assert_equal fake_shift, @enigma.shift_amount
   end
 
   def test_encrpt

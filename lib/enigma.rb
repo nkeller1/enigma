@@ -9,9 +9,6 @@ class Enigma
     @codekey = Codekey.new
   end
 
-  # def encrypt(message, key, date)
-  # end
-
   def shift_amount
     key_value = @codekey.seperate_to_pairs
     offset = @offset.create_last_four_hash
@@ -22,10 +19,8 @@ class Enigma
   end
 end
 
-# t = Time.now
-# date = [t.day, t.month, t.year]
 
-#
+
 # CIPHER = [*?A..?Z], [*?a..?z]
 #
 # def caesar_cipher string, shift
