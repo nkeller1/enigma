@@ -13,16 +13,13 @@ class CodekeyTest < Minitest::Test
   def test_it_exists
     assert_instance_of Codekey, @codekey
   end
-  #
-  def test_seperate_to_pairs
-    #will use mocks and stubs here. this is just a failing placeholder
-    expected = { :a => 84,
-                 :b => 45,
-                 :c => 58,
-                 :d => 89,
-                }
 
-    assert_equal expected, @codekey.seperate_to_pairs
+  def test_seperate_to_pairs
+    #stub data
+      fake_pairing = {:a =>12,:b => 23, :c => 34, :d => 45}
+      @codekey.expects(:seperate_to_pairs).returns(fake_pairing)
+
+    assert_equal fake_pairing, @codekey.seperate_to_pairs
   end
 
 end
