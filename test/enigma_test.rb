@@ -44,6 +44,7 @@ class EnigmaTest < Minitest::Test
 end
 
 
+
 # enigma.encrypt("hello world", "02715", "040895")
 #=>
 #   {

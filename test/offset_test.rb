@@ -57,5 +57,4 @@ class OffsetTest < Minitest::Test
 
     assert_equal fake_pairing, @offset.create_last_four_hash
   end
-
 end

@@ -42,6 +42,5 @@ class Offset
       :c => split_last_four[2].to_i,
       :d => split_last_four[3].to_i
     }
-    split
   end
 end

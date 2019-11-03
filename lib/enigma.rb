@@ -19,8 +19,10 @@ class Enigma
   end
 end
 
+  # def encrypt(message, key, date)
+  # end
 
-
+end
 # CIPHER = [*?A..?Z], [*?a..?z]
 #
 # def caesar_cipher string, shift
