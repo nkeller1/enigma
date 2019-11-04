@@ -18,7 +18,6 @@ class Enigma
     end
     shift
   end
-
   def rotate_by_offset_value
     offset_rotate = shift_amount.values
     # loop do
@@ -36,3 +35,6 @@ class Enigma
     list
   end
 end
+=======
+end
+

@@ -46,7 +46,6 @@ class EnigmaTest < Minitest::Test
         key: "02715",
         date: "040895"
       }
-
     assert_equal expected, @enigma.encrypt("hello world")
   end
 end
