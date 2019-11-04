@@ -19,6 +19,11 @@ class Enigma
     shift
   end
 
+  def encrypt_string(message, key)
+    message_to_array = message.downcase.chars.map { |char| char }
+    require "pry"; binding.pry
+  end
+
   def encrypt(message, key = @codekey, date = @offset.combine)
     list = {}
       offset_rotate = shift_amount.values
