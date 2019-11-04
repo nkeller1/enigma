@@ -14,15 +14,16 @@ class EnigmaTest < Minitest::Test
   def setup
     @enigma = Enigma.new
     @offset = Offset.new
+    @Encrypt = Encrypt.new
   end
 
   def test_it_exists
     assert_instance_of Enigma, @enigma
   end
 
-  def test_char_set_has_27_characters
-    assert_equal 27, @enigma.char_set.count
-  end
+  # def test_char_set_has_27_characters
+  #   assert_equal 27, @enigma.char_set.count
+  # end
 
   def test_shift_amount
     #stub data
@@ -32,23 +33,19 @@ class EnigmaTest < Minitest::Test
     assert_equal fake_shift, @enigma.shift_amount
   end
 
-#   def test_encrpt
-#       expected = {
-#         encryption: "keder ohulw",
-#         key: "02715",
-#         date: "040895"
-#       }
-#
-#     assert_equal expected, @enigma.encrypt("hello world", "02715", "040895")
-#   end
+  def test_rotate_by_offset_value
+    #stub
+    fake_rotate = [1,2,3,4]
+    @enigma.expects(:rotate_by_offset_value).returns(fake_rotate)
+    assert_equal fake_rotate, @enigma.rotate_by_offset_value
+  end
+
+  def test_encrypt
+      expected = {
+        encryption: "keder ohulw",
+        key: "02715",
+        date: "040895"
+      }
+    assert_equal expected, @enigma.encrypt("hello world")
+  end
 end
-
-
-
-# enigma.encrypt("hello world", "02715", "040895")
-#=>
-#   {
-#     encryption: "keder ohulw",
-#     key: "02715",
-#     date: "040895"
-#   }

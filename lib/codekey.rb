@@ -2,7 +2,7 @@ class Codekey
   attr_reader :key
 
   def initialize
-    @key = rand(10000..99999)
+    @key = rand(00000..99999)
   end
 
   def seperate_to_pairs
@@ -12,7 +12,7 @@ class Codekey
     pair[:b] = numbers[1..2].join.to_i
     pair[:c] = numbers[2..3].join.to_i
     pair[:d] = numbers[3..4].join.to_i
-    
+
     pair
     end
   end

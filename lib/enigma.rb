@@ -1,12 +1,13 @@
 require 'date'
 
 class Enigma
-  attr_reader :char_set, :offset, :codekey
+  attr_reader :offset, :codekey, :encrypt
 
-  def initialize
-    @char_set = ("a".."z").to_a << " "
+  def initialize(codekey = Codekey.new, encrypt = Encrypt.new)
+    # @char_set = ("a".."z").to_a << " "
     @offset = Offset.new
-    @codekey = Codekey.new
+    @codekey = codekey
+    @encrypt = encrypt
   end
 
   def shift_amount
@@ -17,16 +18,23 @@ class Enigma
     end
     shift
   end
+  def rotate_by_offset_value
+    offset_rotate = shift_amount.values
+    # loop do
+    offset_rotate.rotate!
+    # until
+    # end
+    # or could enumerate shift_amount.values.map do |shift| shift (maybe i can rotate here)
+  end
+
+  def encrypt(message)
+    list = {}
+    list[:encryption] = @encrypt.encrypt_string(message, rotate_by_offset_value[0])
+    list[:key] = @codekey.key.to_s
+    list[:date] = @offset.combine.to_s
+    list
+  end
+end
+=======
 end
 
-  # def encrypt(message, key, date)
-  # end
-
-end
-# CIPHER = [*?A..?Z], [*?a..?z]
-#
-# def caesar_cipher string, shift
-#   string.tr CIPHER.join, CIPHER.map{ |ary| ary.rotate shift }.join
-# end
-#
-# puts caesar_cipher 'ABCDEFGHIJKLMNOP', 3
