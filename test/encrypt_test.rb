@@ -19,20 +19,10 @@ class EncryptTest < Minitest::Test
     assert_equal 27, @encrypt.char_set.count
   end
 
-  # def test_message_to_array
-  #   assert_equal ["h", "e", "l", "l", "o"], @encrypt.message_to_array(hello)
-  # end
-
   def test_encrypt_string
     assert_equal "ifmmp", @encrypt.encrypt_string("hello", 1)
     assert_equal "c", @encrypt.encrypt_string("h", 99)
     assert_equal "c.", @encrypt.encrypt_string("h.", 99)
   end
 
-  def test_rotate_char_set
-    #stub
-    fake_char_rotate = [1,2,3,4]
-    @encrypt.expects(:rotate_char_set).returns(fake_char_rotate)
-    assert_equal fake_char_rotate, @encrypt.rotate_char_set
-  end
 end
