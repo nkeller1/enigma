@@ -2,7 +2,7 @@ require_relative './test_helper'
 require 'mocha/minitest'
 require 'minitest/autorun'
 require 'minitest/pride'
-require_relative '../lib/encrypt'
+
 
 
 class EncryptTest < Minitest::Test

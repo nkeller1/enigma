@@ -3,10 +3,7 @@ require 'minitest/autorun'
 require 'minitest/pride'
 require 'date'
 require 'mocha/minitest'
-require_relative '../lib/enigma'
-require_relative '../lib/offset'
-require_relative '../lib/codekey'
-require_relative '../lib/encrypt'
+
 
 
 class EnigmaTest < Minitest::Test
