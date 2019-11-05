@@ -33,19 +33,28 @@ class EnigmaTest < Minitest::Test
     assert_equal fake_shift, @enigma.shift_amount
   end
 
-  def test_rotate_by_offset_value
-    #stub
-    fake_rotate = [1,2,3,4]
-    @enigma.expects(:rotate_by_offset_value).returns(fake_rotate)
-    assert_equal fake_rotate, @enigma.rotate_by_offset_value
-  end
-
-  def test_encrypt
+  def test_encrypt_with_date_and_key
       expected = {
         encryption: "keder ohulw",
         key: "02715",
         date: "040895"
       }
+
+    assert_equal expected, @enigma.encrypt("hello world", "02715", "040895")
+  end
+
+  def test_encrypt_with_no_date_or_key_provided
+      fake_encrypt = {
+        encryption: "keder ohulw",
+        key: "02715",
+        date: "040895"
+      }
+
+
+    @enigma.expects(:encrypt).returns(fake_encrypt)
+
+    assert_equal fake_encrypt, @enigma.encrypt("hello world")
+
     assert_equal expected, @enigma.encrypt("hello world")
   end
 end

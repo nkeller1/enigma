@@ -18,6 +18,12 @@ class Enigma
     end
     shift
   end
+
+
+  def encrypt_string(message, key)
+    message_to_array = message.downcase.chars.map { |char| char }
+    require "pry"; binding.pry
+
   def rotate_by_offset_value
     offset_rotate = shift_amount.values
     # loop do
@@ -27,11 +33,17 @@ class Enigma
     # or could enumerate shift_amount.values.map do |shift| shift (maybe i can rotate here)
   end
 
-  def encrypt(message)
+  def encrypt(message, key = @codekey, date = @offset.combine)
     list = {}
-    list[:encryption] = @encrypt.encrypt_string(message, rotate_by_offset_value[0])
-    list[:key] = @codekey.key.to_s
-    list[:date] = @offset.combine.to_s
+      offset_rotate = shift_amount.values
+      split_message = message.split(//).map do |char|
+        new_char = @encrypt.encrypt_string(char, offset_rotate.first)
+        offset_rotate.rotate!
+        new_char
+      end
+    list[:encryption] = split_message.join
+    list[:key] = key
+    list[:date] = date
     list
   end
 end
