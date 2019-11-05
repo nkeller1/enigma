@@ -1,5 +1,3 @@
-require 'date'
-
 class Enigma
   attr_reader :offset, :codekey, :encrypt
 
@@ -19,21 +17,20 @@ class Enigma
     shift
   end
 
+  def encrypt(message, key =  nil, date = nil)
+    if key != nil
+      @codekey = Codekey.new(key)
+    else
+      @codekey = Codekey.new
+    end
+    if date != nil
+      @offset = Offset.new(date)
+    else
+      @offset = Offset.new
+    end
 
   def encrypt_string(message, key)
     message_to_array = message.downcase.chars.map { |char| char }
-    require "pry"; binding.pry
-
-  def rotate_by_offset_value
-    offset_rotate = shift_amount.values
-    # loop do
-    offset_rotate.rotate!
-    # until
-    # end
-    # or could enumerate shift_amount.values.map do |shift| shift (maybe i can rotate here)
-  end
-
-  def encrypt(message, key = @codekey, date = @offset.combine)
     list = {}
       offset_rotate = shift_amount.values
       split_message = message.split(//).map do |char|
@@ -47,6 +44,5 @@ class Enigma
     list
   end
 end
-=======
-end
+#end
 

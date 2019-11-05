@@ -3,8 +3,7 @@ require 'date'
 require 'mocha/minitest'
 require 'minitest/autorun'
 require 'minitest/pride'
-require_relative '../lib/enigma'
-require_relative '../lib/offset'
+
 
 class OffsetTest < Minitest::Test
 

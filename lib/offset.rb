@@ -3,8 +3,8 @@ require 'date'
 class Offset
   attr_reader :now
 
-  def initialize
-    @now = Time.new
+  def initialize(now = Time.new)
+    @now = now
   end
 
   def collect_day

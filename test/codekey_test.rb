@@ -2,8 +2,6 @@ require_relative './test_helper'
 require 'mocha/minitest'
 require 'minitest/autorun'
 require 'minitest/pride'
-require_relative '../lib/enigma'
-require_relative '../lib/codekey'
 
 class CodekeyTest < Minitest::Test
   def setup
@@ -12,6 +10,13 @@ class CodekeyTest < Minitest::Test
 
   def test_it_exists
     assert_instance_of Codekey, @codekey
+  end
+
+  def test_it_sepeates_to_pairs_with_a_given_key
+    pairing = {:a =>12,:b => 23, :c => 34, :d => 45}
+
+    assert_equal pairing, @codekey.seperate_to_pairs(12345)
+    # assert_equal pairing, @codekey.seperate_to_pairs (this fail on purpose)
   end
 
   def test_seperate_to_pairs
