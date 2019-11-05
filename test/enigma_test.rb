@@ -62,8 +62,11 @@ class EnigmaTest < Minitest::Test
         date: "040895"
       }
 
+
     @enigma.expects(:encrypt).returns(fake_encrypt)
 
     assert_equal fake_encrypt, @enigma.encrypt("hello world")
+
+    assert_equal expected, @enigma.encrypt("hello world")
   end
 end

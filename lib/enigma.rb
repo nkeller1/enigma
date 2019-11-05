@@ -29,6 +29,8 @@ class Enigma
       @offset = Offset.new
     end
 
+  def encrypt_string(message, key)
+    message_to_array = message.downcase.chars.map { |char| char }
     list = {}
       offset_rotate = shift_amount.values
       split_message = message.split(//).map do |char|
@@ -42,3 +44,5 @@ class Enigma
     list
   end
 end
+#end
+
