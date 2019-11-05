@@ -7,19 +7,10 @@ class Offset
     @now = now
   end
 
-  def collect_day
-    @now.day.to_s.rjust(2, "0")
-  end
-
-  def collect_month
-    @now.month.to_s.rjust(2, "0")
-  end
-
-  def collect_year
-    @now.year.to_s[2..4]
-  end
-
   def combine
+    collect_day = @now.day.to_s.rjust(2, "0")
+    collect_month = @now.month.to_s.rjust(2, "0")
+    collect_year = @now.year.to_s[2..4]
     collect_day + collect_month + collect_year
   end
 
