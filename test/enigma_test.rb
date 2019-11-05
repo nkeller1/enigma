@@ -25,7 +25,11 @@ class EnigmaTest < Minitest::Test
   #   assert_equal 27, @enigma.char_set.count
   # end
 
-  def test_shift_amount
+  def test_shift_amount_with_given_number
+
+  end
+
+  def test_shift_amount_with_random_numbers
     #stub data
     fake_shift = {:a =>12,:b => 23, :c => 34, :d => 45}
     @enigma.expects(:shift_amount).returns(fake_shift)
@@ -37,11 +41,22 @@ class EnigmaTest < Minitest::Test
       expected = {
         encryption: "keder ohulw",
         key: "02715",
+        # date: Time.new(1995, 8, 4, 0, 0, 0)
         date: "040895"
       }
 
-    assert_equal expected, @enigma.encrypt("hello world", "02715", "040895")
+    assert_equal expected, @enigma.encrypt("hello world", "02715", Time.new(1995, 8, 4, 0, 0, 0))
   end
+
+  # def test_encrypt_with_just_key
+  #     expected = {
+  #       encryption: "keder ohulw",
+  #       key: "02715",
+  #       date: "040895"
+  #     }
+  #
+  #   assert_equal expected, @enigma.encrypt("hello world", "02715")
+  # end
 
   def test_encrypt_with_no_date_or_key_provided
       fake_encrypt = {

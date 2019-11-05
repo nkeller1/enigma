@@ -19,12 +19,18 @@ class Enigma
     shift
   end
 
-  def encrypt_string(message, key)
-    message_to_array = message.downcase.chars.map { |char| char }
-    require "pry"; binding.pry
-  end
+  def encrypt(message, key =  nil, date = nil)
+    if key != nil
+      @codekey = Codekey.new(key)
+    else
+      @codekey = Codekey.new
+    end
+    if date != nil
+      @offset = Offset.new(date)
+    else
+      @offset = Offset.new
+    end
 
-  def encrypt(message, key = @codekey, date = @offset.combine)
     list = {}
       offset_rotate = shift_amount.values
       split_message = message.split(//).map do |char|
