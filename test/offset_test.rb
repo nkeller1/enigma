@@ -15,25 +15,28 @@ class OffsetTest < Minitest::Test
     assert_instance_of Offset, @offset
   end
 
-  def test_collect_day
-    #stub data
-    @offset.expects(:collect_day).returns("01")
-    assert_equal "01", @offset.collect_day
-  end
+  # def test_collect_day
+  #   #stub data
+  #   @offset.expects(:collect_day).returns("01")
+  #   assert_equal "01", @offset.collect_day
+  # end
+  #
+  # def test_collect_month
+  #   #stub data
+  #   @offset.expects(:collect_month).returns("11")
+  #   assert_equal "11", @offset.collect_month
+  # end
+  #
+  # def test_collect_year
+  #   #stub data
+  #   @offset.expects(:collect_year).returns("19")
+  #   assert_equal "19", @offset.collect_year
+  # end
+  # def test_combine_date
+  #   assert_equal 12345, @offset.combine("12345")
+  # end
 
-  def test_collect_month
-    #stub data
-    @offset.expects(:collect_month).returns("11")
-    assert_equal "11", @offset.collect_month
-  end
-
-  def test_collect_year
-    #stub data
-    @offset.expects(:collect_year).returns("19")
-    assert_equal "19", @offset.collect_year
-  end
-
-  def test_combine
+  def test_combine_date_with_random
     #stub data
     @offset.expects(:combine).returns("12345")
     assert_equal "12345", @offset.combine

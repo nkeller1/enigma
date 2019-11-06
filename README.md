@@ -1,1 +1,1 @@
-# enigma
+How did I do on this assignment? I felt like I took off really strong. I had a good direction. I was successful at first. Once i got stuck i got really stuck. i was able to get over a few hurdles but at the end and of the day I couldn't get the problem that eluded me for so long. I feel like my testing was really good. I knew what I needed to do. I had direction on solving the problems but when I solved, and it did not work (endgame) I could not go back and solve a different, more dynamic, day. I think i would give myself a 2 overall. 

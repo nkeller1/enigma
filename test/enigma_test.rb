@@ -18,10 +18,6 @@ class EnigmaTest < Minitest::Test
     assert_instance_of Enigma, @enigma
   end
 
-  # def test_char_set_has_27_characters
-  #   assert_equal 27, @enigma.char_set.count
-  # end
-
   def test_shift_amount_with_given_number
 
   end
@@ -39,21 +35,21 @@ class EnigmaTest < Minitest::Test
         encryption: "keder ohulw",
         key: "02715",
         # date: Time.new(1995, 8, 4, 0, 0, 0)
-        date: "040895"
+        date: 040895
       }
 
     assert_equal expected, @enigma.encrypt("hello world", "02715", Time.new(1995, 8, 4, 0, 0, 0))
   end
 
-  # def test_encrypt_with_just_key
-  #     expected = {
-  #       encryption: "keder ohulw",
-  #       key: "02715",
-  #       date: "040895"
-  #     }
-  #
-  #   assert_equal expected, @enigma.encrypt("hello world", "02715")
-  # end
+  def test_encrypt_with_just_key
+      expected = {
+        encryption: "keder ohulw",
+        key: "02715",
+        date: "040895"
+      }
+
+    assert_equal expected, @enigma.encrypt("hello world", "02715")
+  end
 
   def test_encrypt_with_no_date_or_key_provided
       fake_encrypt = {
@@ -68,5 +64,17 @@ class EnigmaTest < Minitest::Test
     assert_equal fake_encrypt, @enigma.encrypt("hello world")
 
     assert_equal expected, @enigma.encrypt("hello world")
+  end
+
+
+  def test_decrypt_with_no_date_or_key_provided
+
+    expected = {
+      decryption: "hello world",
+      key: "02715",
+      date: "040895"
+      }
+
+    assert_equal expected, @enigma.decrypt("keder ohulw")
   end
 end

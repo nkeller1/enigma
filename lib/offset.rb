@@ -6,25 +6,23 @@ class Offset
   def initialize(now = Time.new)
     @now = now
   end
+  # 
+  # def useable_format(now = Time.new)
+  #   collect_day = now.day.to_s.rjust(2, "0")
+  #   collect_month = now.month.to_s.rjust(2, "0")
+  #   collect_year = now.year.to_s[2..4]
+  # end
 
-  def collect_day
-    @now.day.to_s.rjust(2, "0")
-  end
 
-  def collect_month
-    @now.month.to_s.rjust(2, "0")
-  end
-
-  def collect_year
-    @now.year.to_s[2..4]
-  end
-
-  def combine
-    collect_day + collect_month + collect_year
+  def combine(now = Time.new)
+    collect_day = now.day.to_s.rjust(2, "0")
+    collect_month = now.month.to_s.rjust(2, "0")
+    collect_year = now.year.to_s[2..4]
+    (collect_day + collect_month + collect_year).to_i
   end
 
   def square_date
-    combine.to_i * combine.to_i
+    combine * combine
   end
 
   def take_last_four
