@@ -32,8 +32,11 @@ class OffsetTest < Minitest::Test
   #   @offset.expects(:collect_year).returns("19")
   #   assert_equal "19", @offset.collect_year
   # end
+  # def test_combine_date
+  #   assert_equal 12345, @offset.combine("12345")
+  # end
 
-  def test_combine_date
+  def test_combine_date_with_random
     #stub data
     @offset.expects(:combine).returns("12345")
     assert_equal "12345", @offset.combine
